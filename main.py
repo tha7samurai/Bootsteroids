@@ -1,4 +1,3 @@
-print("DEBUG: reached top of main.py")
 import pygame
 import sys
 from constants import *
@@ -39,6 +38,11 @@ def main():
                 log_event('player_hit')
                 print('Game Over')
                 sys.exit()
+            for s in shots:
+                if s.collides_with(a):
+                    log_event('asteroid_shot')
+                    s.kill()
+                    a.split()
         screen.fill('black')
         for sprite in drawable:
             sprite.draw(screen)
